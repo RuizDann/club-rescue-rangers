@@ -81,14 +81,14 @@
 			</div>
 			<div class="flex justify-between px-10 items-baseline">
 				<!-- Profile Picture -->
-				<img id="myProfile" class="object-contain self-center h-28 rounded-full border-4 border-orange-500"
-					src="https://www.pngall.com/wp-content/uploads/2/Chip-And-Dale-PNG-Image.png" />
+				<img id="myProfile" class="object-contain self-center h-28 rounded-full border-4 border-orange-500" alt="profile picture"
+					src="https://cdn3.vectorstock.com/i/thumb-large/32/12/default-avatar-profile-icon-vector-39013212.jpg" />
 				<!-- <img class="object-contain self-center h-28 rounded-full border-4 border-orange-500" -->
 				<!-- src="https://www.pngall.com/wp-content/uploads/2/Chip-And-Dale-PNG-Image.png" /> -->
 				<!-- Logo -->
-				<img class="w-80 h-40 border-4 bg-white border-blue-900 "
+				<img class="w-80 h-40 border-4 bg-white border-blue-900" alt="Rescue Rangers Logo"
 					src="https://iconape.com/wp-content/files/fa/51196/svg/chip-n-dale-rescue-rangers.svg" />
-				<button onclick="myFunction(); changeImage()" type="button" id="ourBtn"
+				<button type="button" id="signInBtn"
 					class="bg-green-800 hover:bg-green-600 rounded px-4 py-2 h-max self-center text-white w-28">Sign-In</button>
 			</div>
 		</header>
@@ -107,20 +107,43 @@
 					</li>
 				</ul>
 			</div>
-			<div id="main-body" class="w-5/6 bg-purple-400">
-				<div class="flex items-center grow w-full justify-center">
-					<div>
-						<label>
-							Post a Comment
-							<input class="flex items-center input field-centered" type="text"
-								value="Enter your message here..." id="Message_Input" />
-						</label>
+			<div id="main-body" class="w-5/6 bg-amber-800 flex-col flex justify-center items-center gap-y-4 py-3">
+				<!-- main body POST COMMENT SECTION -->
+				<div class="w-1/3 bg-yellow-100 shadow-lg rounded-lg px-4 pt-2">
+					<div class="flex flex-wrap -mx-3 mb-6">
+						<h2 id="autoText" class="px-4 pt-3 pb-2 text-gray-800 text-lg"></h2>
+						<div class="w-full md:w-full px-3 mb-2 mt-2">
+							<textarea
+								class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+								id="addComment" name="body" placeholder='Type Your Comment' required></textarea>
+						</div>
+						<div class="w-full md:w-full flex items-start md:w-full px-3">
+							<div class="flex items-start w-1/2 text-gray-700 px-2 mr-auto">
+								<p class="text-xs md:text-sm pt-px"></p>
+							</div>
+							<div class="-mr-1">
+								<input id='addCommentButton' type='submit'
+									class="bg-white bg-amber-500 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100"
+									value='Post Comment'>
+							</div>
+						</div>
 					</div>
-					<button onclick="Post()" type="button">Post</button>
 				</div>
-				<!-- Main should contain at minimum: new-post-form, feed-container -->
-				<h1 class="Feed_header" id="Feed_Header">FEED</h1>
-				<a id="keep"></a>
+				<!-- POST COMMENT FEED -->
+				<div id="main" class="flex-col flex w-3/4 bg-white justify-center shadow-lg mb-4 p-2">
+					<!-- Main should contain at minimum: new-post-form, feed-container -->
+					<h2 class="Feed_header" id="Feed_Header">CLUB COMMENTS</h2>
+					<div id="feedContainer" class="w-full mx-auto p-6 gap-y-4 flex flex-col max-h-40 overflow-auto">
+						<div class="w-full rounded shadow-lg bg-slate-200 border-2 border-solid border-black">
+							<p class="font-bold text-xl pl-4">
+								DARK KNIGHT
+							</p>
+							<p class="bg-white pl-8">Gotham needs me!</p>
+							<p class="italic pl-8 text-right text-sm pr-4">Posted On: <span>Aug.31.2022</span>
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer class="flex flex-col h-max bg-slate-400">
