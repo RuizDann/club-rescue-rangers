@@ -10,8 +10,12 @@ var prev = document.getElementById("prev");
 var next = document.getElementById("next");
 var isLoggedIn = false;
 var slideLength = slides.length;
+for (var index = 0; index < slides.length; index++) {
+  const element = slides[index];
+  element.style.transform = "translateX(" + 100 * index + "%)";
+}
 var loop = 0 + 1000 * slideLength;
-console.log(prev);
+
 // Event Listeners
 signInBtn.addEventListener("click", authHandler);
 commentPostButton.addEventListener("click", addPostHandler);
