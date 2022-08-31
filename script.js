@@ -3,30 +3,39 @@ var commentPostButton = document.getElementById("addCommentButton");
 var feedContainer = document.getElementById("feedContainer");
 var signInBtn = document.getElementById("signInBtn");
 var profilePic = document.getElementById("myProfile");
+var isLoggedIn = false;
 
 signInBtn.addEventListener("click", authHandler);
 commentPostButton.addEventListener("click", addPostHandler);
+commentPostButton.disabled = isLoggedIn;;
 
 function addPostHandler(){
 	var postComment = commentBox.value;
-	var newComment = generatePostComment(postComment);
-	feedContainer.prepend(newComment);
+	if(isLoggedIn){
+		var newComment = generatePostComment(postComment);
+		feedContainer.prepend(newComment);
+	}else {
+		alert("Please Sign In to Post a Comment");
+	}
 	commentBox.value = "";
 }
+
 
 function authHandler() {
   var defaultAvatar = "https://cdn3.vectorstock.com/i/thumb-large/32/12/default-avatar-profile-icon-vector-39013212.jpg";
   
   if (signInBtn.innerText === "Sign-In" && profilePic.src === defaultAvatar) {
-	  signInBtn.classList.replace("bg-green-800", "bg-orange-400");
-	  signInBtn.classList.replace("hover:bg-green-600", "hover:bg-orange-300");
-	  signInBtn.innerText = "Sign Out";
-    profilePic.src = "https://www.pngall.com/wp-content/uploads/2/Chip-And-Dale-PNG-Image.png";
+	  	signInBtn.classList.replace("bg-green-800", "bg-orange-400");
+	  	signInBtn.classList.replace("hover:bg-green-600", "hover:bg-orange-300");
+	  	signInBtn.innerText = "Sign Out";
+    	profilePic.src = "https://www.pngall.com/wp-content/uploads/2/Chip-And-Dale-PNG-Image.png";
+		isLoggedIn = true;
 	} else {
 		signInBtn.innerText = "Sign-In";
 		signInBtn.classList.replace("bg-orange-400", "bg-green-800");
 		signInBtn.classList.replace("hover:bg-orange-300", "hover:bg-green-600");
 		profilePic.src = defaultAvatar;
+		isLoggedIn = false;
 	}
 }
 
