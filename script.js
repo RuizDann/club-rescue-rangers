@@ -7,7 +7,7 @@ var isLoggedIn = false;
 
 signInBtn.addEventListener("click", authHandler);
 commentPostButton.addEventListener("click", addPostHandler);
-commentPostButton.disabled = isLoggedIn;;
+commentPostButton.disabled = isLoggedIn;
 
 function addPostHandler(){
 	var postComment = commentBox.value;
@@ -19,7 +19,6 @@ function addPostHandler(){
 	}
 	commentBox.value = "";
 }
-
 
 function authHandler() {
   var defaultAvatar = "https://cdn3.vectorstock.com/i/thumb-large/32/12/default-avatar-profile-icon-vector-39013212.jpg";
